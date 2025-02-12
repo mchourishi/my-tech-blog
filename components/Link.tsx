@@ -3,13 +3,9 @@ import Link from 'next/link'
 import type { LinkProps } from 'next/link'
 import { AnchorHTMLAttributes } from 'react'
 
-interface CustomLinkProps extends LinkProps, AnchorHTMLAttributes<HTMLAnchorElement> {
-  href: any // Ensuring href is always a string
-}
-
-const CustomLink = ({ href, ...rest }: CustomLinkProps) => {
-  const isInternalLink = href.startsWith('/')
-  const isAnchorLink = href.startsWith('#')
+const CustomLink = ({ href, ...rest }: LinkProps & AnchorHTMLAttributes<HTMLAnchorElement>) => {
+  const isInternalLink = href && href.startsWith('/')
+  const isAnchorLink = href && href.startsWith('#')
 
   if (isInternalLink) {
     return <Link className="break-words" href={href} {...rest} />
