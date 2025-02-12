@@ -7,7 +7,7 @@ interface CustomLinkProps extends LinkProps, AnchorHTMLAttributes<HTMLAnchorElem
   href: string // Ensuring href is always a string
 }
 
-const CustomLink = ({ href, ...rest }: CustomLinkProps) => {
+const CustomLink = ({ href = '', ...rest }: CustomLinkProps) => {
   const isInternalLink = href.startsWith('/')
   const isAnchorLink = href.startsWith('#')
 
