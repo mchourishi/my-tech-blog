@@ -1,0 +1,108 @@
+---
+title: Setup a simple CI/CD Pipeline with Jenkins
+date: '2024-03-08'
+tags: ['ci/cd']
+layout: PostBanner
+images: ['/static/images/jenkins-banner.png']
+summary: Jenkins is one of the most popular tools for automating CI/CD pipelines. It helps developers integrate, test, and deploy code automatically, reducing manual effort and improving efficiency. In this guide, we’ll walk through setting up a simple CI/CD pipeline with Jenkins.
+---
+
+## Prerequisites
+
+Before we begin, make sure you have:\
+✅ Jenkins installed (Locally or on a server – [Download Jenkins](https://www.jenkins.io/download/)) \
+✅ Git installed and a repository to use \
+✅ A basic project (e.g., a simple Node.js or Python app) \
+✅ Java installed (Jenkins runs on Java)
+
+---
+
+## Step 1: Install Required Jenkins Plugins
+
+1. Open Jenkins Dashboard → Manage Jenkins → Manage Plugins
+2. Under Available Plugins, install the following plugins:
+
+- Pipeline (For writing Jenkinsfile-based pipelines)
+- Git (For Git repository integration)
+- SSH Pipeline Steps (For SSH-based deployment)
+
+3. Restart Jenkins after installing the plugins.
+
+---
+
+## Step 2: Create a New Jenkins Job
+
+1. Go to the Jenkins Dashboard → Click New Item
+2. Select Pipeline and give it a meaningful name (e.g., "My CI/CD Pipeline")
+3. Click OK
+
+---
+
+## Step 3: Connect Jenkins to Your Git Repository
+
+1. Inside your new job, go to Configure
+2. Under Pipeline → Definition, select Pipeline script from SCM
+3. Under SCM, choose Git, and enter your repository URL
+4. If the repo is private, add credentials
+5. Set the branch (e.g., main or develop)
+
+---
+
+## Step 4: Create a Jenkinsfile for Your Pipeline
+
+In your project root, create a file named Jenkinsfile and add:
+
+```groovy
+pipeline {
+    agent any
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git 'https://github.com/your-repo.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'echo "Building the project..."'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'echo "Running tests..."'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'echo "Deploying application..."'
+            }
+        }
+    }
+}
+```
+
+---
+
+## Step 5: Run Your Pipeline
+
+1. Go back to Jenkins Dashboard → Select your pipeline
+2. Click Build Now
+3. Watch your pipeline execute in Build History
+4. Check the console output for any errors.
+5. If successful, you'll see a green checkmark.
+
+---
+
+## Bonus: Automate with Webhooks
+
+To trigger the pipeline automatically on every commit:
+
+- In GitHub/GitLab, go to Repository Settings → Webhooks
+- Add your Jenkins URL:
+
+```arduino
+http://your-jenkins-url/github-webhook/
+```
+
+- Select Push Events to trigger on new commits.
+
+Now, Jenkins will run the pipeline whenever you push code!

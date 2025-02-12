@@ -1,0 +1,55 @@
+---
+title: Introduction to CI/CD
+date: '2024-03-08'
+tags: ['ci/cd']
+layout: PostBanner
+images: ['/static/images/cicd.png']
+summary: Introduction to CI/CD - What is it and why does it matter
+---
+
+## What is CI/CD ?
+
+Continuous Integration (CI) automates the process of merging code from multiple developers into a shared codebase frequently. This helps catch issues early, ensuring that the code is always in a working state.
+
+Continuous Delivery (CD) ensures that your code is always ready for production. Once the code passes testing, it’s automatically deployed to production—or at least is always ready to be deployed with minimal manual intervention.
+
+---
+
+## Why CI/CD matters ?
+
+- Faster Delivery: With automated testing and deployment, features are delivered faster and more consistently.
+- Higher Quality: Automated tests catch bugs early, so you avoid the headache of late-stage surprises.
+- Reduced Risk: Small, frequent changes are easier to manage, and issues are easier to fix before they reach production.
+- Better Collaboration: CI/CD fosters teamwork, as developers frequently commit changes, making integration smoother and conflicts easier to resolve.
+- Happier Users: With faster, more reliable releases, users get a stable, high-quality product.
+
+---
+
+## How CI/CD works ?
+
+1. CI Workflow:
+
+- Developers commit code to a version control system (like Git).
+- The CI tool (like Jenkins, Travis CI, or CircleCI) detects the commit and triggers a build.
+- The build includes automated tests, such as unit tests, integration tests, and UI tests.
+- If the tests pass, the code is considered integrated.
+- If the tests fail, the build is marked as failed, and the issue is reported to the developer.
+
+2. CD Workflow:
+
+- Once CI passes, the code is deployed to a staging environment.
+- Automated tests verify the integration and functionality. Once all tests pass, the code is ready for production.
+
+---
+
+## Key CI/CD Tools
+
+There are many tools available to automate your CI/CD processes:
+
+- Jenkins, GitHub Actions, GitLab CI/CD, and CircleCI are among the most popular for automating your pipeline from code integration to deployment.
+
+---
+
+## Conclusion
+
+CI/CD is essential for modern software development. It enables faster, more reliable delivery, improves code quality, and empowers your team to collaborate efficiently. If you’re ready to level up your development game, CI/CD is the way to go!

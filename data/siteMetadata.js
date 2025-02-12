@@ -1,9 +1,13 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Next.js Starter Blog',
-  author: 'Tails Azimuth',
-  headerTitle: 'TailwindBlog',
-  description: 'A blog created with Next.js and Tailwind.css',
+  title: 'Tech Tonic',
+  author: 'Mukta Patel',
+  headerTitle: 'Tech Tonic',
+  description:
+    "Welcome to Tech Tonic, your go-to space for all things tech! Whether you're a beginner or a seasoned developer\
+  ,you'll find in-depth guides, industry news, and personal insights on software development, the latest technologies, and coding trends. \
+  Dive into a mix of tutorials and real-world experiences designed to help you grow, learn, and stay up-to-date with the fast-moving tech world.\
+  Join me on this journey as we explore, create, and innovate together in the ever-evolving digital landscape!",
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
