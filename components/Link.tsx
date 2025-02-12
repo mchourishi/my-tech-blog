@@ -3,7 +3,7 @@ import Link from 'next/link'
 import type { LinkProps } from 'next/link'
 import { AnchorHTMLAttributes } from 'react'
 
-interface CustomLinkProps extends LinkProps, AnchorHTMLAttributes<HTMLAnchorElement> {
+interface CustomLinkProps extends LinkProps {
   href: string // Ensuring href is always a string
 }
 
