@@ -13,4 +13,4 @@ export const components: MDXComponents = {
   pre: Pre,
   table: TableWrapper,
   BlogNewsletterForm,
-}
+} as MDXComponents
