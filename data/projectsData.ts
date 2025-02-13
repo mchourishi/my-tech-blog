@@ -7,20 +7,22 @@ interface Project {
 
 const projectsData: Project[] = [
   {
-    title: 'A Search Engine',
-    description: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
-    imgSrc: '/static/images/google.png',
-    href: 'https://www.google.com',
+    title: 'YouTube Clone',
+    description: `Simple YouTube UI clone built with React, JavaScript and YouTube v3 APIs`,
+    imgSrc: '/static/images/youtube-clone.jpg',
+    href: 'https://silly-selkie-d8c1e7.netlify.app/',
   },
   {
-    title: 'The Time Machine',
-    description: `Imagine being able to travel back in time or to the future. Simple turn the knob
-    to the desired date and press "Go". No more worrying about lost keys or
-    forgotten headphones with this simple yet affordable solution.`,
-    imgSrc: '/static/images/time-machine.jpg',
-    href: '/blog/the-time-machine',
+    title: 'YouTube Ads Blocker Chrome Extension',
+    description: `Chrome extension to block ads on YouTube. Built this extension for personal use to avoid ads while I am learning.`,
+    imgSrc: '/static/images/ads-blocker.png',
+    href: 'https://github.com/mchourishi/youtube-ad-blocker',
+  },
+  {
+    title: 'Fullstack Notes App',
+    description: `Fullstack Notes App built with React (frontend), NodeJS (BFF), Python (FastAPI) and MongoDB.`,
+    imgSrc: '/static/images/notes-app.jpg',
+    href: 'https://github.com/mchourishi/fullstack-notes-app',
   },
 ]
 
