@@ -1,5 +1,5 @@
 <h1 align="center">Mukta's Coding Adventure</h1>
-<p align="center"><i>My desire to practice my skills and share my acquired knowledge fuels my endeavors.</i></p>
+<p align="center"><i>My blog is a place for me to learn skills and share my knowledge.</i></p>
 
 <br>
 <p align="center"><i>Please visit my <a href="https://mukta-techblog.vercel.app/">Website</a></i></p>
@@ -7,7 +7,7 @@
 
 ## Website
 
-<a href="https://mukta-techblog.vercel.app/"><img src="https://raw.githubusercontent.com/Karhdo/karhdo.dev/main/public/static/images/projects/karhdo-blog.png" alt="Image Mukta's Blog Website" /></a>
+![image](https://github.com/user-attachments/assets/ef0af346-db32-46f9-96ef-84191bc26d2f)
 
 ## Tech Stack
 
