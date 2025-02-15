@@ -19,8 +19,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Capture Start Time
+        id: start-time
+        run: echo "timestamp=$(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_ENV
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
@@ -52,7 +59,7 @@ jobs:
             📌 *Repository:* ${{ github.repository }}\n
             🔄 *Branch:* ${{ github.ref }}\n
             ✅ *Status:* ${{ job.status }}\n
-            🕒 *Timestamp:* ${{ steps.start_time.outputs.timestamp }}\n
+            🕒 *Timestamp:* '${{ env.timestamp }}'\n
             📎 *Build Log:* [View Here](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
           }' "https://questps.webhook.office.com/webhookb2/d80f341c-dd92-4865-848f-7a1420c5284d@94797e0d-39d7-4f03-9ec2-bc29b56fe1ac/IncomingWebhook/95057c5e8ce6430a840af06d06a6f792/7a16d4ee-67e4-452f-b0c8-6bd88338bd22/V2pGGkN2KMdHbJB-4g2DRkpe0JKDK5wQn2T-4cW40vy3c1"
 
