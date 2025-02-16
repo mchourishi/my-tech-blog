@@ -1,4 +1,6 @@
 {
+  "javascript": 1,
+  "es6": 1,
   "cicd": 8,
   "github-actions": 1,
   "devops": 1,
