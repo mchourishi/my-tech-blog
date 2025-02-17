@@ -1,0 +1,180 @@
+---
+title: 🚀 Mastering React Router - Navigating Between Pages Efficiently 🎯
+date: '2025-01-05'
+tags: ['ReactJS', 'React Router', 'React Navigation']
+draft: false
+summary: React Router is the go-to solution for handling navigation in React applications. 🚀 It enables seamless page transitions without full page reloads, enhancing user experience and performance. In this guide, we’ll explore how to efficiently navigate between pages using React Router v6. 🔥
+---
+
+React Router is the go-to solution for handling navigation in React applications. 🚀 It enables seamless page transitions without full page reloads, enhancing user experience and performance. In this guide, we’ll explore how to efficiently navigate between pages using React Router v6. 🔥
+
+---
+
+## 🟢 Installing React Router 📦
+
+To get started, install React Router:
+
+```bash
+npm install react-router-dom
+```
+
+---
+
+## 🔵 Setting Up Routes 🛣️
+
+To define routes, wrap your application in the `BrowserRouter` and use the `Routes` and `Route` components.
+
+### Example:
+
+```JSX
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './Home';
+import About from './About';
+import Contact from './Contact';
+
+function App() {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+            </Routes>
+        </BrowserRouter>
+}
+
+export default App;
+```
+
+### 🎯 Key Takeaway:
+
+- The `<Route>` component maps URLs to components.
+- The `<Routes>` component ensures only one route is rendered at a time.
+
+---
+
+## 🔴 Navigating Between Pages 🚪
+
+Instead of using `<a>` tags, React Router provides the `<Link>` component for client-side navigation without refreshing the page.
+
+### Example:
+
+```JSX
+import { Link } from 'react-router-dom';
+
+function NavBar() {
+    return (
+        <nav>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+            <Link to="/contact">Contact</Link>
+        </nav>
+    );
+}
+```
+
+✨ Best Practice: Always use `<Link>` instead of `<a>` to prevent full page reloads and enhance performance! 🚀
+
+---
+
+## 🔴 Programmatic Navigation 🏎️
+
+Sometimes, you need to navigate dynamically (e.g., after form submission). Use the useNavigate hook for this. 🎯
+
+### Example:
+
+```JSX
+import { useNavigate } from 'react-router-dom';
+function Login(){
+    const navigate = useNavigate();
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        navigate('/dashboard');
+        }
+
+    return (<button onClick={handleSubmit}>Login</button>);
+}
+```
+
+🔥 Why useNavigate?
+
+- Allows dynamic redirection.
+- Works inside event handlers.
+- Replaces the older useHistory hook.
+
+---
+
+## 🟠 Nested Routes 📁
+
+React Router supports nested routes, making layouts cleaner and more modular.
+
+```JSX
+import { Routes, Route, Outlet } from 'react-router-dom';
+
+function DashboardLayout(){
+    return (<div>
+        <h1>Dashboard</h1>
+        <Outlet />
+    </div>);
+}
+
+function Dashboard(){
+    return (
+        <Routes>
+            <Route path="dashboard" element={<DashboardLayout />} >
+            <Route path="settings" element={<h2>Settings</h2>} />
+            <Route path="profile" element={<h2>Profile</h2>} />
+        </Routes>
+        );
+}
+```
+
+💡 Why use Outlet? It acts as a placeholder for child routes, making layouts reusable and structured. 🏗️
+
+---
+
+## 🔄 Redirects and Not Found Pages ❌
+
+Handle 404 pages and redirects seamlessly with the Navigate component.
+
+### Example:
+
+```JSX
+import { Routes, Route, Navigate } from 'react-router-dom';
+
+function NotFound() {
+  return <h2>404 - Page Not Found 😢</h2>;
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="*" element={<NotFound />} />
+      <Route path="/old-route" element={<Navigate to="/new-route" replace />} />
+    </Routes>
+  );
+}
+```
+
+🔍 Key Takeaway:
+
+- The `*` route handles unknown routes (404 pages).
+- The `<Navigate>` component redirects users.
+
+---
+
+## 🎯 Wrapping Up
+
+React Router makes navigation in React apps efficient and user-friendly. 🌟
+
+✅ Use `<Routes>` and `<Route>` for defining pages. \
+✅ Use `<Link>` instead of `<a>` for smooth transitions. \
+✅ Use useNavigate for dynamic navigation. \
+✅ Implement nested routes with `<Outlet>`. \
+✅ Handle redirects and 404 pages with `<Navigate>`.
+
+By mastering React Router, you ensure your apps are fast, dynamic, and user-friendly! 🚀
+
+Happy Coding! 💻✨
