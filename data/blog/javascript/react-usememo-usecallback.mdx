@@ -1,0 +1,117 @@
+---
+title: '🚀 Mastering useMemo & useCallback in React: When and Why?'
+date: '2025-01-07'
+tags: ['ReactJS', 'useMemo', 'juseCallback', 'Performance Optimization']
+draft: false
+summary: React's built-in hooks `useMemo` and `useCallback` are powerful tools to optimize performance. But when should you use them? And how do they work? Let's break it down with examples! 🚀
+---
+
+# 🎯 `useMemo` vs `useCallback` in React: When to Use Which?
+
+React's built-in hooks `useMemo` and `useCallback` are powerful tools to optimize performance. But when should you use them? And how do they work? Let's break it down with examples! 🚀
+
+## 🧐 What is `useMemo`?
+
+`useMemo` is a hook that **memoizes a computed value** to avoid unnecessary recalculations.
+
+### ✅ When to use `useMemo`?
+
+- When you have expensive computations.
+- When you want to avoid recalculating derived state on every render.
+- When you want to cache the result of a function.
+- When you want to optimize performance by avoiding unnecessary re-renders.
+
+### 📝 Example:
+
+```JSX
+import { useState, useMemo } from 'react';
+
+function ExpensiveComponent({numbers}){
+    const sum = useMemo(() => {
+        console.log("Calculating sum....");
+        return numbers.reduce((a, b) => a + b, 0);
+    }, [numbers]);
+}
+
+export default function App(){
+    const [count, setCount] = useState(0);
+    return (
+        <div>
+            <button onClick={() => setCount(count + 1)}>Click Me ({count})</button>
+        </div>
+        );
+}
+```
+
+**🔍 Without `useMemo`,** the sum would be recalculated on every render, even if `numbers` didn't change!
+
+---
+
+## ⚡ What is `useCallback`?
+
+`useCallback` **memoizes a function reference** to prevent unnecessary re-creations.
+
+### ✅ When to use `useCallback`?
+
+- When passing functions as props to child components.
+- When a function should not be re-created unless dependencies change.
+
+### 📝 Example:
+
+```jsx
+import { useState, useCallback } from 'react'
+
+function Child({ onClick }) {
+  console.log('Child component rendered')
+  return <button onClick={onClick}>Click me!</button>
+}
+
+export default function App() {
+  const [count, setCount] = useState(0)
+
+  const handleClick = useCallback(() => {
+    console.log('Button clicked');
+  , []});  // Empty dependency array -> function is memoized
+
+  return (
+    <div>
+      <h2>Count: {count}</h2>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <Child onClick={handleClick} />
+    </div>
+  )
+}
+```
+
+**🔍 Without `useCallback`,** the `handleClick` function would be re-created on every render, causing unnecessary re-renders of the `Child` component.
+
+---
+
+## 🚀 `useMemo` vs `useCallback`: The Key Difference
+
+| Hook          | Purpose                           | Returns                 |
+| ------------- | --------------------------------- | ----------------------- |
+| `useMemo`     | Memoizes a **computed value**     | The computed **value**  |
+| `useCallback` | Memoizes a **function reference** | The **function** itself |
+
+---
+
+## 🎯 When NOT to Use Them
+
+❌ **Don't use `useMemo` or `useCallback` everywhere!** Unnecessary usage can make code harder to read and even reduce performance.
+
+- **Avoid premature optimization**: If you don’t have performance issues, don't use them.
+- **Don't use `useMemo` for simple values** (like numbers, booleans, or strings).
+- **Don't use `useCallback` unless passing functions to memoized components**.
+
+---
+
+## 🎉 Wrapping Up
+
+`useMemo` and `useCallback` are great for optimizing performance, but **use them wisely**! 🚀
+
+- ✅ Use `useMemo` to memoize expensive calculations.
+- ✅ Use `useCallback` to memoize function references.
+- ⚠️ Don't overuse them—only optimize when needed!
+
+What are your thoughts on `useMemo` and `useCallback`? Have you faced performance issues in React? Share your experiences in the comments! 💬🔥
