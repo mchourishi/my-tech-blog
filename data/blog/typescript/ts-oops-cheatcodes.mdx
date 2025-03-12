@@ -1,0 +1,198 @@
+---
+title: TypeScript Cheatsheet
+date: '2025-03-01'
+tags: ['TypeScript', 'Cheatsheet']
+draft: false
+summary: Object-Oriented Programming (OOP) is a paradigm that uses objects and classes to structure code. TypeScript enhances OOP with static typing and access modifiers, improving code maintainability and scalability.
+---
+
+Object-Oriented Programming (OOP) is a paradigm that uses objects and classes to structure code. TypeScript enhances OOP with static typing and access modifiers, improving code maintainability and scalability.
+
+## Classes and Constructors
+
+A class is a blueprint for creating objects. The constructor initializes object properties.
+
+```TypeScript
+class Account {
+    id: number;
+    constructor(id: number){
+        this.id = id;
+    }
+}
+```
+
+---
+
+## Parameter Properties
+
+Parameter properties are a shorthand for defining properties in a class constructor.
+
+```TypeScript
+class Account {
+    constructor(public id: number, public name: string) {}
+}
+
+```
+
+---
+
+## Getters and Setters
+
+Getters and setters are used to control access to object properties.
+
+```TypeScript
+class Account {
+    private _id: number;
+    constructor(id: number){
+        this._id = id;
+        }
+    get id(): number {
+        return this._id;
+        }
+    set id(value: number) {
+        if (value > 0) {
+            this._id = value;
+        } else {
+            throw new Error('Invalid id');
+                }
+        }
+    }
+```
+
+---
+
+## Index Signatures
+
+Allows dynamic property assignment while maintaining type safety.
+
+```TypeScript
+class SeatAssignment {
+    [seatNumber: number]: string;
+}
+let seats = new SeatAssignment();
+seats.A1 = 'Mosh';
+seats.A2 = 'John';
+```
+
+---
+
+## Static Members
+
+Belong to the class itself rather than instances.
+
+```TypeScript
+class MathUtil {
+    static PI: number = 3.14;
+    static add(a: number, b: number): number {
+        return a + b;
+    }
+    }
+console.log(MathUtil.PI);
+```
+
+---
+
+## Inheritance
+
+A class can extend another class to reuse its properties and methods.
+
+```TypeScript
+class Animal {
+    sound(): void {
+        console.log('Generic animal sound');
+        }
+    }
+class Dog extends Animal {
+    override sound(): void {
+        console.log('Woof!');
+        }
+    }
+let dog = new Dog();
+dog.sound();
+```
+
+---
+
+## Method Overriding
+
+A subclass can provide its own implementation of a parent class method.
+
+```TypeScript
+class Student extends Person {
+    override speak() {
+        console.log('Student speaking');
+    }
+}
+```
+
+## Abstract Classes and Methods
+
+Abstract classes define a blueprint for subclasses.
+
+```TypeScript
+abstract class Animal {
+    abstract sound(): void;
+    }
+class Dog extends Animal {
+    override sound(): void {
+        console.log('Woof!');
+    }
+}
+```
+
+---
+
+## Read-Only and Optional Properties
+
+Ensure immutability and optional property definition.
+
+```TypeScript
+class Person {
+    readonly name: string;
+    optionalAge?: number;
+    constructor(name: string, age?: number) {
+        this.name = name;
+        this.optionalAge = age;
+        }
+    }
+```
+
+---
+
+## Access Modifiers
+
+Control property and method visibility using private, protected, and public.
+
+```TypeScript
+class Person {
+    private _name: string;
+    protected _age: number;
+    constructor(name: string, age: number) {
+        this._name = name;
+        this._age = age;
+    }
+    public get name(): string {
+        return this._name;
+    }
+}
+
+```
+
+---
+
+## Interfaces
+
+Define a blueprint for objects.
+
+```TypeScript
+interface Calendar {
+    name: string;
+    addEvent(): void;
+}
+class GoogleCalendar implements Calendar {
+    name: string;
+    addEvent() {}
+}
+```
+
+---
