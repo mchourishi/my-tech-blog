@@ -1,0 +1,195 @@
+---
+title: TypeScript Cheatsheet
+date: '2025-03-01'
+tags: ['TypeScript', 'Cheatsheet']
+draft: false
+summary: TypeScript is a statically typed superset of JavaScript that enhances code quality and developer experience. This cheatsheet covers essential TypeScript features with examples.
+---
+
+TypeScript is a statically typed superset of JavaScript that enhances code quality and developer experience. This cheatsheet covers essential TypeScript features with examples.
+
+## Annotations
+
+TypeScript allows explicit type annotations to ensure type safety.
+
+```TypeScript
+let name: string = 'John';
+let age: number = 30;
+let numbers:number[] = [1, 2, 3];
+```
+
+---
+
+## Tuples
+
+Tuples allow defining arrays with fixed length and types.
+
+```TypeScript
+let coordinates: [number, number] = [1, 2];
+```
+
+---
+
+## Enums
+
+Enums provide a way to define a set of named constants.
+
+```TypeScript
+enum Color {
+    Red,
+    Green,
+    Blue
+    }
+```
+
+---
+
+## Functions
+
+Functions can be annotated with return types and parameter types.
+
+```TypeScript
+function greet(name: string): void {
+    console.log(`Hello, ${name}!`);
+    }
+```
+
+---
+
+## Objects
+
+You can specify object structures with specific property types.
+
+```TypeScript
+let employee: {name: string, id: number, retire: (date: Date) => void} = {
+    name: 'John',
+    id : 1
+    retire: (date: Date) => {}
+}
+```
+
+---
+
+## Type Alias
+
+Type aliases allow you to define reusable object shapes.
+
+```TypeScript
+type Employee = {
+    name: string,
+    id: number,
+    retire: (date: Date) => void
+}
+```
+
+---
+
+## Union types
+
+Union types allow variables to hold multiple types.
+
+```TypeScript
+let weight: number | string = 50;
+weight = '50kg'
+```
+
+## Intersection types
+
+Intersection types allow you to combine multiple types into one.
+
+```TypeScript
+interface Person {
+    name: string;
+    age: number;
+    }
+    interface Employee {
+        name: string;
+        id: number;
+        }
+        let person: Person & Employee = {
+            name: 'John',
+            age: 30,
+            id: 1
+            }
+```
+
+---
+
+## Literal TypeScript
+
+Literal types are used to define a type that can only be one of a specific set of values.
+
+```TypeScript
+type Color = 'red' | 'green' | 'blue';
+```
+
+---
+
+## Nullable types
+
+Allow variables to hold null values.
+
+```TypeScript
+let name: string | null;
+```
+
+---
+
+## Optional Chaining (?.)
+
+Optional chaining prevents errors when accessing properties of null or undefined objects.
+
+```TypeScript
+let user = null;
+let name = user?.name;
+```
+
+---
+
+## Nullish Coalescing (??)
+
+Provides a default value when a variable is null or undefined.
+
+```TypeScript
+let user = null;
+let name = user ?? 'John';
+```
+
+---
+
+## Type Assertion
+
+Type assertions tell TypeScript to treat a variable as a specific type.
+
+```TypeScript
+let id = '123' as string;
+```
+
+---
+
+## The `unknown` type
+
+The unknown type ensures type safety by requiring explicit type conversions.
+
+```TypeScript
+function render(document: unknown){
+    // explicit type conversion
+    if (typeof document === 'string') {
+        console.log(document);
+        }
+}
+```
+
+---
+
+## The `never` type
+
+A function that never returns, often used for infinite loops of errors.
+
+```TypeScript
+function neverReturn(): never {
+    while (true) {
+        // infinite loop
+        }
+        }
+```
